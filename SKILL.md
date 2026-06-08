@@ -1,23 +1,25 @@
 ﻿---
 name: agent-iron-rules
-description: 【强制预加载】Agent 操作铁律 — 在任何毕业设计相关任务启动时必须与 grad-design-squad 同时加载。六大节覆盖所有工作流：范围控制、危险操作确认、沟通规则、记忆与背景、Karpathy 四原则、与 Agent Team 架构的集成约束。这不是参考建议，是硬约束——不加载=无规则裸跑。与 grad-design-squad 是并列的操作系统层 skill。
+description: 【强制预加载｜通用】Agent 操作铁律 — 通用思考规则，在任何任务中强制生效。六大节：范围控制、危险操作确认、沟通规则、记忆与背景、Karpathy 四原则、与 Agent Team 架构的集成约束。这不是参考建议，是硬约束。在毕业设计场景中与 grad-design-squad 并列加载；在非毕业设计场景中独立加载。
 ---
 
 # Agent 操作铁律
 
-> ⚠️ **本 skill 是硬约束，不是参考建议。** 启动任何毕业设计任务时，必须与 `grad-design-squad` 同时加载。铁律覆盖所有 Squad、所有任务、所有工作流，不加载意味着 Agent 不知道操作边界。
+> ⚠️ **本 skill 是硬约束，不是参考建议。** 通用思考规则，在任何任务中强制生效。在毕业设计场景中与 `grad-design-squad` 并列加载；在非毕业设计场景中独立加载。不加载意味着 Agent 不知道操作边界。
 >
-> 本 skill 与 `grad-design-squad` 的关系: grad-design-squad 定义"谁做什么、怎么协调"，agent-iron-rules 定义"怎么做才是对的"。
+> 本 skill 适用范围: **通用**。在毕业设计场景中与 `grad-design-squad` 并列加载（后者定义"谁做什么"），但铁律本身不依赖 grad-design-squad——任何任务中都可独立生效。
 
 ## 强制预加载规则
 
-**每次启动毕业设计任务时，必须同时加载本 skill 和 grad-design-squad:**
+**毕业设计场景**: 与 grad-design-squad 并列加载：
 
 ```
-用户触发 → 加载 grad-design-squad（建立 Squad 架构）
-         → 加载 agent-iron-rules（建立操作边界）
-         → 两者就绪后才开始执行
+用户触发毕业设计关键词 → 加载 grad-design-squad（建立 Squad 架构）
+                      → 加载 agent-iron-rules（建立操作边界）
+                      → 两者就绪后才开始执行
 ```
+
+**非毕业设计场景**: 独立加载——任何涉及文件修改、代码编辑、内容创作的任务都应加载本 skill 以建立操作边界。AGENTS.md 中的非毕业设计触发词会直接触发本 skill。
 
 六节铁律概览:
 
